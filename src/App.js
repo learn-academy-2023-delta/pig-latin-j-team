@@ -26,7 +26,12 @@ const App = () => {
           vowel === "e" ||
           vowel === "i" ||
           vowel === "o" ||
-          vowel === "u"
+          vowel === "u" ||
+          vowel === "A" ||
+          vowel === "E" ||
+          vowel === "I" ||
+          vowel === "O" ||
+          vowel === "U" 
         )
       })
       console.log("vowelsArray:", vowelsArray)
@@ -35,16 +40,26 @@ const App = () => {
       if(eachWord[0]=== vowelsArray[0]){
         eachWord+="way"
         }
-       else if(vowelsArray[0]=== "u"){
+       else if(vowelsArray[0]=== "u"||vowelsArray[0]=== "U"){
          eachWord = eachWord.split("")
          let indexOfU = eachWord.indexOf("u")
+         let indexOfCapitalU = eachWord.indexOf("U")
+         if(indexOfU >indexOfCapitalU && indexOfCapitalU !== -1 || indexOfU == -1){
+          indexOfU = indexOfCapitalU
+          
+        }
       console.log (eachWord, "index of u is", indexOfU)
-         if(eachWord[indexOfU - 1] === "q") {  // selects the index of the letter in front of th eindex containing "u"  is a 'Q'
+         if(eachWord[indexOfU - 1] === "q"||eachWord[indexOfU - 1] === "Q") {  // selects the index of the letter in front of th eindex containing "u"  is a 'Q'
           eachWord.slice(0,indexOfU + 1)
           let ruleQU = eachWord.slice(0,indexOfU + 1)
          eachWord = eachWord.filter((value, index) => index > indexOfU)
          eachWord = eachWord.concat(ruleQU).join("")+"ay"
         
+        } else {
+          let ruleOtherU = eachWord.slice(0,indexOfU)
+          eachWord = eachWord.filter((value, index) => index >= indexOfU)
+          eachWord = eachWord.concat(ruleOtherU).join("")+"ay"
+
         }
          // make array of word
          //push first consonant to end arrayed word
@@ -55,8 +70,23 @@ const App = () => {
        }
        else if (vowelsArray.length === 0){
         let indexOfY = eachWord.indexOf("y")
-        eachWord = "y" + eachWord.slice(0, indexOfY) + "ay"
+        let indexOfCapitalY = eachWord.indexOf("Y")
+        let myY = "y"
+        if(indexOfY >indexOfCapitalY && indexOfCapitalY !== -1 || indexOfY == -1){
+          indexOfY = indexOfCapitalY
+          myY = "Y"
+        }
+        
+        eachWord = myY + eachWord.slice(0, indexOfY) + "ay"
+       }else {
+        let indexOfVowel = eachWord.indexOf(vowelsArray[0])
+
+        let ruleCons = eachWord.slice(0, indexOfVowel) 
+        eachWord = eachWord.split('').filter((value, index) => index>=indexOfVowel)
+        eachWord = eachWord.concat(ruleCons).join("")+"ay"
        }
+
+
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
