@@ -34,8 +34,25 @@ const App = () => {
       // ACTION ITEM: your Pig Latin logic goes here!
       if(eachWord[0]=== vowelsArray[0]){
         eachWord+="way"
-      }
-
+        }
+       else if(vowelsArray[0]=== "u"){
+         eachWord = eachWord.split("")
+         let indexOfU = eachWord.indexOf("u")
+      console.log (eachWord, "index of u is", indexOfU)
+         if(eachWord[indexOfU - 1] === "q") {  // selects the index of the letter in front of th eindex containing "u"  is a 'Q'
+          eachWord.slice(0,indexOfU + 1)
+          let ruleQU = eachWord.slice(0,indexOfU + 1)
+         eachWord = eachWord.filter((value, index) => index > indexOfU)
+         eachWord = eachWord.concat(ruleQU).join("")+"ay"
+        
+        }
+         // make array of word
+         //push first consonant to end arrayed word
+         //push 'way' to end of arrayed word
+         // make string
+         //return the new string
+         //.slice() up to the index of 'u'+ 'ay' push end therefore is translated to pigLatin
+       }
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
