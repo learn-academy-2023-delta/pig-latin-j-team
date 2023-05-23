@@ -53,13 +53,17 @@ const App = () => {
          //return the new string
          //.slice() up to the index of 'u'+ 'ay' push end therefore is translated to pigLatin
        }
+       else if (vowelsArray.length === 0){
+        let indexOfY = eachWord.indexOf("y")
+        eachWord = "y" + eachWord.slice(0, indexOfY) + "ay"
+       }
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
 
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
     const translatedWords = translatedWordsArray.join(" ")
-    console.log("translatedWords:", translatedWords)
+    // console.log("translatedWords:", translatedWords)
 
     // NO MODIFICATION NEEDED: this will update the inputTranslated variable in state
     setInputTranslated(translatedWords)
