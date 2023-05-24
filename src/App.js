@@ -120,10 +120,10 @@ const App = () => {
     <div className="page-container">
       <div className="body-container">
         <h1>Pig Latin Translator</h1>
-        <img
-          src={butcherPigImage}
+        <img id = "picture"
+          src="https://img.rawpixel.com/private/static/images/website/2022-05/sv159407-image-kwvx72ae.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=6da65057b0cd18ca5c2c509a319d6316"
           alt="pig with butcher cut names in pig latin"
-          className="butcher-pig-image"
+          className="butcher-pig-image bg-image-blur " 
         />
 
         <div className="input-section">
@@ -138,7 +138,7 @@ const App = () => {
           <button onClick={setUpPreventDefault}>Submit</button>
           <button onClick={restartGame}>Clear</button>
         </div>
-        <p>{inputTranslated}</p>
+        <p><span id = "translated">{inputTranslated}</span></p>
       </div>
       <footer>&copy; 2023 | Coded by: Jacob O and Justin F!</footer>
     </div>

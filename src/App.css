@@ -12,7 +12,11 @@ h1 {
 .butcher-pig-image {
   margin: 1rem;
   width: 14rem;
+
+ 
+  
 }
+
 
 /* ---BODY--- */
 
@@ -20,6 +24,10 @@ button {
   border-radius: 0.9rem;
   margin: 1rem;
   padding: 1rem;
+}
+
+#translated {
+  background-color:white;
 }
 
 .body-container {
